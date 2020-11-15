@@ -13,6 +13,9 @@ RUN apt-get install -y python3-pip
 
 RUN pip3 install stanza==1.1.1
 RUN python3 -c "import stanza;stanza.download('en')"
+RUN python3 -c "import stanza;stanza.download('ar')"
+
+RUN echo "dsgnk"
 
 RUN git clone https://github.com/yanliang12/yan_ner_docker.git
 RUN mv yan_ner_docker/* ./
