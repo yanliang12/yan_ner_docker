@@ -1,5 +1,17 @@
 # yan_ner_docker
 
+start the docker and enter python3
+
+```bash
+docker pull yanliang12/yan_ner_docker:1.0.1
+
+docker run -it yanliang12/yan_ner_docker:1.0.1 bash
+
+python3
+```
+
+extract entities from a Arabic text
+
 ```python
 >>> from yan_ner_arabic import arabic_ner
 
