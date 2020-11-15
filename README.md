@@ -14,8 +14,7 @@ extract entities from a Arabic text
 
 ```python
 >>> from yan_ner_arabic import arabic_ner
-
-2020-11-15 10:36:42 INFO: Loading these models for language: ar (Arabic):
+2020-11-15 11:05:14 INFO: Loading these models for language: ar (Arabic):
 =======================
 | Processor | Package |
 -----------------------
@@ -29,18 +28,28 @@ extract entities from a Arabic text
 
 /usr/local/lib/python3.7/dist-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
   return torch._C._cuda_getDeviceCount() > 0
-2020-11-15 10:36:42 INFO: Use device: cpu
-2020-11-15 10:36:42 INFO: Loading: tokenize
-2020-11-15 10:36:42 INFO: Loading: mwt
-2020-11-15 10:36:42 INFO: Loading: pos
-2020-11-15 10:36:44 INFO: Loading: lemma
-2020-11-15 10:36:44 INFO: Loading: depparse
-2020-11-15 10:36:45 INFO: Loading: ner
-2020-11-15 10:36:46 INFO: Done loading processors!
+2020-11-15 11:05:14 INFO: Use device: cpu
+2020-11-15 11:05:14 INFO: Loading: tokenize
+2020-11-15 11:05:14 INFO: Loading: mwt
+2020-11-15 11:05:14 INFO: Loading: pos
+2020-11-15 11:05:15 INFO: Loading: lemma
+2020-11-15 11:05:15 INFO: Loading: depparse
+2020-11-15 11:05:17 INFO: Loading: ner
+2020-11-15 11:05:18 INFO: Done loading processors!
 >>> 
->>> text = u"اسمي مشاري. انا اعمل في جامعة حائل. انا سعودي."
+>>> text = u"""
+... لقاءنا الثامن في سلسلة لقاءات افتراضية مع باحثين في #معالجة_اللغة_العربية مع
+... أ.د. نزار حبش و م.أسامة عبيد
+... 
+... عنوان اللقاء:
+... أدوات كامل: مجموعة أدوات مفتوحة المصدر بلغة بايثون لمعالجة اللغة العربية 
+... 
+... يوم الأربعاء 11 نوفمبر الساعة 8م بتوقيت مكة 
+... 
+... للتسجيل 👇
+... """
 >>> 
 >>> print(arabic_ner(text))
-[{'text': 'مشاري', 'type': 'PER', 'start_char': 5, 'end_char': 10}, {'text': 'جامعة حائل', 'type': 'LOC', 'start_char': 24, 'end_char': 34}]
+[{'text': 'نزار حبش', 'type': 'PER', 'start_char': 83, 'end_char': 91}, {'text': 'أسامة عبيد', 'type': 'PER', 'start_char': 96, 'end_char': 106}, {'text': 'بايثون', 'type': 'MISC', 'start_char': 166, 'end_char': 172}, {'text': 'مكة', 'type': 'LOC', 'start_char': 237, 'end_char': 240}]
 >>> 
 ```
